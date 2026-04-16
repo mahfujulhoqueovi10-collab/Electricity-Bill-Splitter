@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0055)http://127.0.0.1:5500/Bill%20Splitter%20(Final)%20.html -->
+
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -336,7 +336,7 @@
 
         <div class="error" id="errorMessage"></div>
 
-        <!-- Slab Info -->
+
         <div class="slab-info">
             <strong>📊 Current Slab Rates:</strong>
             <div class="slab-table">
@@ -367,7 +367,7 @@
             </div>
         </div>
 
-        <!-- Section 1: Meter Balance -->
+   
         <div class="form-section">
             <div class="section-title">💰 Meter Balance Calculation</div>
             <div class="form-grid three-col">
@@ -386,7 +386,7 @@
             </div>
         </div>
 
-        <!-- Section 2: Units Usage -->
+
         <div class="form-section">
             <div class="section-title">📊 Units Usage</div>
             <div class="form-grid">
@@ -401,7 +401,7 @@
             </div>
         </div>
 
-        <!-- Section 3: Bill Amount -->
+     
         <div class="form-section">
             <div class="section-title">💵 Total Bill Amount</div>
             <div class="form-grid">
@@ -657,7 +657,7 @@
 
             const deficit1 = totalBill - calculatedTotalBill; // DEFICIT (1)
 
-            // ============ PART 3: DISTRIBUTE TOTAL DEFICIT BY UNITS ============
+           
             const mainUsageRatio = mainUnits / totalUnits;
             const subUsageRatio = subUnits / totalUnits;
 
@@ -667,7 +667,7 @@
             const mainDeficitShare = deficitPerUnit * mainUnits;
             const subDeficitShare = deficitPerUnit * subUnits;
 
-            // ============ PART 4: FINAL BILLS ============
+           
             const mainDeficit1Share = deficit1 * mainUsageRatio;
             const subDeficit1Share = deficit1 * subUsageRatio;
             const mainDeficit2Share = deficit2 * mainUsageRatio;
@@ -709,7 +709,7 @@
         }
 
         function displayResults(data) {
-            // Balance Summary
+            
             document.getElementById('displayPrevBalance').textContent = data.prevBalance.toFixed(2) + ' ৳';
             document.getElementById('displayTotalRefill').textContent = data.totalRefill.toFixed(2) + ' ৳';
             document.getElementById('availableBalance').textContent = data.availableBalance.toFixed(2) + ' ৳';
@@ -719,7 +719,7 @@
             document.getElementById('deficit2Amount').textContent = 
                 (data.deficit2 >= 0 ? '+' : '') + data.deficit2.toFixed(2) + ' ৳';
 
-            // Bill Breakdown
+           
             document.getElementById('totalUnits').textContent = data.totalUnits.toFixed(2);
             document.getElementById('totalBillDisplay').textContent = data.totalBill.toFixed(2) + ' ৳';
             document.getElementById('calculatedBill').textContent = data.calculatedTotalBill.toFixed(2) + ' ৳';
@@ -735,7 +735,6 @@
             document.getElementById('subDeficitShareDisplay').textContent =
                 data.subDeficitShare.toFixed(2) + ' ৳';
 
-            // Main Meter
             document.getElementById('mainUnitsDisplay').textContent = data.mainUnits.toFixed(2);
             document.getElementById('mainUsagePercent').textContent = (data.mainUsageRatio * 100).toFixed(2) + '%';
             document.getElementById('mainSlabBill').textContent = data.mainSlabBill.toFixed(2) + ' ৳';
@@ -743,7 +742,7 @@
             document.getElementById('mainDeficit2Share').textContent = data.mainDeficit2Share.toFixed(2) + ' ৳';
             document.getElementById('mainFinalBill').textContent = data.mainFinalBill.toFixed(2) + ' ৳';
 
-            // Sub Meter
+          
             document.getElementById('subUnitsDisplay').textContent = data.subUnits.toFixed(2);
             document.getElementById('subUsagePercent').textContent = (data.subUsageRatio * 100).toFixed(2) + '%';
             document.getElementById('subSlabBill').textContent = data.subSlabBill.toFixed(2) + ' ৳';
@@ -751,7 +750,7 @@
             document.getElementById('subDeficit2Share').textContent = data.subDeficit2Share.toFixed(2) + ' ৳';
             document.getElementById('subFinalBill').textContent = data.subFinalBill.toFixed(2) + ' ৳';
 
-            // Verification
+           
             const totalFinalBill = data.mainFinalBill + data.subFinalBill;
             document.getElementById('verificationTotal').textContent = totalFinalBill.toFixed(2) + ' ৳';
             document.getElementById('expectedTotal').textContent = data.totalBill.toFixed(2) + ' ৳';
@@ -759,7 +758,7 @@
             const match = Math.abs(totalFinalBill - data.totalBill) < 0.01;
             document.getElementById('matchStatus').textContent = match ? '✓ Verified' : '✗ Mismatch';
 
-            // Show results
+           
             document.getElementById('results').classList.add('show');
         }
 
